@@ -1,0 +1,108 @@
+.todo-container {
+    margin: 50px auto;
+    width: 600px;
+}
+
+.todo-title {
+    font-size: 35px;
+    margin: 15px 0;
+    color: orange;
+    text-align: center;
+    font-weight: 600;
+}
+
+.todo-new{
+    display: flex;
+    width: 100%;
+    gap: 15px;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.todo-data {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;    
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.todo-image {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.logo {
+    height: 6em;
+    padding: 1.5em;
+    will-change: filter;
+    transition: filter 300ms;
+}
+.logo:hover {
+    filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+    filter: drop-shadow(0 0 2em #61dafbaa);
+}
+@media (prefers-reduced-motion: no-preference) {
+    .logo {
+        animation: logo-spin infinite 20s linear;
+    }
+}
+@keyframes logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Parent div that stays at the bottom */
+.button-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: red;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Button styles */
+.btn {
+    background-color: white;
+    color: red;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Hover effect */
+.btn:hover {
+    background-color: darkred;
+    color: white;
+}
+
+/* Responsive design: Stack buttons on smaller screens */
+@media (max-width: 768px) {
+    .button-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .btn {
+        width: 90%;
+    }
+}
+
+
+
