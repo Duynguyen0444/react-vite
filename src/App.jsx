@@ -79,7 +79,7 @@ const App = () => {
     <div className="todo-container">
       <div className="todo-title">Todo</div>
       <TodoNew addNewTodo={addNewTodo} />
-      <TodoData name={name} age={age} data={data} todo={todos} />
+      <TodoData name={name} age={age} data={data} todos={todos} />
 
       {/* <div className="todo-image">
         <img src={reactLogo} className="logo" alt="Vite logo" />
