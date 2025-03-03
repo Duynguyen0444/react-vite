@@ -5,6 +5,7 @@ import reactLogo from "./assets/react.svg";
 import { useState } from "react";
 import ToggleButton from "./components/toggle";
 import Form from "./components/Form";
+import CaptchaDemo from "./components/Capcha";
 
 const App = () => {
   const name = "React";
@@ -15,11 +16,7 @@ const App = () => {
   };
 
   const [image, setImage] = useState(null);
-  const [todos, setTodos] = useState([
-    { id: 1, name: "Learn React" },
-    { id: 2, name: "Learn Vue" },
-    { id: 3, name: "Learn Angular" },
-  ]);
+  const [todos, setTodos] = useState([]);
 
   const [isSwitchOn, setIsSwitchOn] = useState(false);
 
@@ -79,11 +76,15 @@ const App = () => {
     <div className="todo-container">
       <div className="todo-title">Todo</div>
       <TodoNew addNewTodo={addNewTodo} />
-      <TodoData name={name} age={age} data={data} todos={todos} />
 
-      {/* <div className="todo-image">
-        <img src={reactLogo} className="logo" alt="Vite logo" />
-      </div> */}
+      {todos.length > 0 ? (
+        <TodoData name={name} age={age} data={data} todos={todos} />
+      ) : (
+        <div className="todo-image">
+          <img src={reactLogo} className="logo" alt="Vite logo" />
+        </div>
+      )}
+
       {/* <div>
         <input type="file" accept="image/*" onChange={handleFileUpload} />;
         {image && (

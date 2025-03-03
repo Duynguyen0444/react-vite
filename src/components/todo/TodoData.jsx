@@ -5,11 +5,9 @@ const TodoData = (props) => {
   return (
     <>
       <div className="todo-data">
-        {todos.map((todo, index) => (
-          <div className="todo-item">
-            <div key={index}>
-              {todo.name}
-            </div>
+        {todos.map((item, index) => (
+          <div key={item.id} className="todo-item">
+            <div>{item.name}</div>
             <button onClick={() => {}}> Delete</button>
           </div>
         ))}
