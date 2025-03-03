@@ -72,30 +72,29 @@ const App = () => {
     setTodos([...todos, newTodo]);
   };
 
+  const deleteTodo = (id) => {
+    const newTodos = todos.filter((item) => item.id !== id);
+    setTodos(newTodos);
+  };
+
   return (
     <div className="todo-container">
       <div className="todo-title">Todo</div>
       <TodoNew addNewTodo={addNewTodo} />
 
       {todos.length > 0 ? (
-        <TodoData name={name} age={age} data={data} todos={todos} />
+        <TodoData
+          name={name}
+          age={age}
+          data={data}
+          todos={todos}
+          deleteTodo={deleteTodo}
+        />
       ) : (
         <div className="todo-image">
           <img src={reactLogo} className="logo" alt="Vite logo" />
         </div>
       )}
-
-      {/* <div>
-        <input type="file" accept="image/*" onChange={handleFileUpload} />;
-        {image && (
-          <img
-            src={image}
-            alt="Preview"
-            style={{ width: "200px", marginTop: "10px" }}
-          />
-        )}
-      </div> */}
-      {/* <ToggleButton checked={isSwitchOn} onChange={handleToggleChange} /> */}
     </div>
   );
 };

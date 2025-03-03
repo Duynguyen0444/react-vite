@@ -1,6 +1,9 @@
 const TodoData = (props) => {
-  const { name, age, data, todos } = props;
-  const { address, country } = data;
+  const { todos, deleteTodo } = props;
+
+  const handleClicked = (id) => {
+    deleteTodo(id);
+  };
 
   return (
     <>
@@ -8,7 +11,12 @@ const TodoData = (props) => {
         {todos.map((item, index) => (
           <div key={item.id} className="todo-item">
             <div>{item.name}</div>
-            <button onClick={() => {}}> Delete</button>
+            <button
+              style={{ cursor: "pointer" }}
+              onClick={() => handleClicked(item.id)}
+            >
+              Delete
+            </button>
           </div>
         ))}
       </div>
