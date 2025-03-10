@@ -1,8 +1,8 @@
 import { useState } from "react";
+import PropTypes from 'prop-types';
 
 const TodoNew = (props) => {
   const { addNewTodo } = props;
-
   const [valueInput, setValueInput] = useState("");
 
   const handleOnChange = (value) => {
@@ -27,6 +27,10 @@ const TodoNew = (props) => {
       </button>
     </div>
   );
+};
+
+TodoNew.propTypes = {
+  addNewTodo: PropTypes.func.isRequired,
 };
 
 export default TodoNew;
