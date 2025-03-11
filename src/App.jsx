@@ -2,10 +2,12 @@ import "./components/todo/todo.css";
 import TodoData from "./components/todo/TodoData";
 import TodoNew from "./components/todo/TodoNew";
 import reactLogo from "./assets/react.svg";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import ToggleButton from "./components/toggle";
 import Form from "./components/Form";
 import CaptchaDemo from "./components/Capcha";
+import Header from "./components/layouts/header";
+import Footer from "./components/layouts/footer";
 
 const App = () => {
   const name = "React";
@@ -78,24 +80,28 @@ const App = () => {
   };
 
   return (
-    <div className="todo-container">
-      <div className="todo-title">Todo</div>
-      <TodoNew addNewTodo={addNewTodo} />
+    <Fragment>
+      <Header />
+      <div className="todo-container">
+        <div className="todo-title">Todo</div>
+        <TodoNew addNewTodo={addNewTodo} />
 
-      {todos.length > 0 ? (
-        <TodoData
-          name={name}
-          age={age}
-          data={data}
-          todos={todos}
-          deleteTodo={deleteTodo}
-        />
-      ) : (
-        <div className="todo-image">
-          <img src={reactLogo} className="logo" alt="Vite logo" />
-        </div>
-      )}
-    </div>
+        {todos.length > 0 ? (
+          <TodoData
+            name={name}
+            age={age}
+            data={data}
+            todos={todos}
+            deleteTodo={deleteTodo}
+          />
+        ) : (
+          <div className="todo-image">
+            <img src={reactLogo} className="logo" alt="Vite logo" />
+          </div>
+        )}
+      </div>
+      <Footer />
+    </Fragment>
   );
 };
 
