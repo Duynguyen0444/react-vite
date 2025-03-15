@@ -3,11 +3,9 @@ import TodoData from "./components/todo/TodoData";
 import TodoNew from "./components/todo/TodoNew";
 import reactLogo from "./assets/react.svg";
 import { Fragment, useState } from "react";
-import ToggleButton from "./components/toggle";
-import Form from "./components/Form";
-import CaptchaDemo from "./components/Capcha";
 import Header from "./components/layouts/header";
 import Footer from "./components/layouts/footer";
+import { Outlet } from "react-router-dom";
 
 const App = () => {
   const name = "React";
@@ -17,49 +15,7 @@ const App = () => {
     country: "India",
   };
 
-  const [image, setImage] = useState(null);
   const [todos, setTodos] = useState([]);
-
-  const [isSwitchOn, setIsSwitchOn] = useState(false);
-
-  const handleImageChange = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      setImage(URL.createObjectURL(file));
-    }
-  };
-
-  const convertToBase64 = (file) => {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => resolve(reader.result); // Chuyển sang Base64
-      reader.onerror = (error) => reject(error);
-    });
-  };
-
-  const handleFileUpload = async (event) => {
-    // const file = event.target.files[0];
-
-    // if (file) {
-    //   const base64String = await convertToBase64(file);
-
-    //   setImage(base64String);
-    //   console.log(base64String); // Đây là chuỗi Base64
-    // }
-    // console.log(event.target.files);
-
-    const file = event.target.files[0]; // Get the first selected file
-    if (file) {
-      const imageURL = URL.createObjectURL(file); // Create a preview URL
-      setImage(imageURL);
-    }
-  };
-
-  const handleToggleChange = (e) => {
-    console.log("Value checked: ", e.target.checked);
-    setIsSwitchOn(e.target.checked);
-  };
 
   const randomIntFromInterval = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
@@ -84,8 +40,8 @@ const App = () => {
       <Header />
       <div className="todo-container">
         <div className="todo-title">Todo</div>
+        {/* <FormStep5 /> */}
         <TodoNew addNewTodo={addNewTodo} />
-
         {todos.length > 0 ? (
           <TodoData
             name={name}
@@ -100,6 +56,7 @@ const App = () => {
           </div>
         )}
       </div>
+      <Outlet />
       <Footer />
     </Fragment>
   );
